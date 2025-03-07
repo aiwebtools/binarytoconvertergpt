@@ -15,24 +15,10 @@ const NavigationBar = () => {
 
     window.addEventListener("scroll", handleScroll);
     
-    // Clean up event listener on unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const toggleMenu = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent event from bubbling up
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  useEffect(() => {
-    // Only add the click outside listener when menu is open
-    if (!isMenuOpen) return;
-    
+    // Close menu when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
-      if (!target.closest('.mobile-menu-container')) {
+      if (isMenuOpen && !target.closest('.mobile-menu-container')) {
         setIsMenuOpen(false);
       }
     };
@@ -40,9 +26,14 @@ const NavigationBar = () => {
     document.addEventListener('click', handleClickOutside);
     
     return () => {
+      window.removeEventListener("scroll", handleScroll);
       document.removeEventListener('click', handleClickOutside);
     };
   }, [isMenuOpen]);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const navigateToSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -144,44 +135,41 @@ const NavigationBar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      <div 
-        className={cn(
-          "absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg cyber-border border-t border-cyber-blue/30 mobile-menu-container transform transition-all duration-300 ease-in-out",
-          isMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4 pointer-events-none"
-        )}
-      >
-        <div className="container px-4 mx-auto py-4">
-          <nav className="flex flex-col gap-3">
-            {navLinks.map((link, index) => (
-              <div key={index} className="w-full">
-                {link.url ? (
-                  <a 
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={cn(
-                      "block w-full text-center py-2 text-sm",
-                      link.isPrimary 
-                        ? "cyber-button primary" 
-                        : "hover:text-cyber-blue transition-colors duration-200"
-                    )}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ) : (
-                  <button
-                    onClick={link.action}
-                    className="block w-full text-center py-2 text-sm hover:text-cyber-blue transition-colors duration-200"
-                  >
-                    {link.label}
-                  </button>
-                )}
-              </div>
-            ))}
-          </nav>
+      {isMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg cyber-border border-t border-cyber-blue/30 animate-fade-in mobile-menu-container">
+          <div className="container px-4 mx-auto py-4">
+            <nav className="flex flex-col gap-3">
+              {navLinks.map((link, index) => (
+                <div key={index} className="w-full">
+                  {link.url ? (
+                    <a 
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={cn(
+                        "block w-full text-center py-2 text-sm",
+                        link.isPrimary 
+                          ? "cyber-button primary" 
+                          : "hover:text-cyber-blue transition-colors duration-200"
+                      )}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <button
+                      onClick={link.action}
+                      className="block w-full text-center py-2 text-sm hover:text-cyber-blue transition-colors duration-200"
+                    >
+                      {link.label}
+                    </button>
+                  )}
+                </div>
+              ))}
+            </nav>
+          </div>
         </div>
-      </div>
+      )}
     </header>
   );
 };
