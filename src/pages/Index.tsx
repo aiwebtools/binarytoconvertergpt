@@ -34,7 +34,8 @@ const Index = () => {
     <div className="flex flex-col min-h-screen bg-cyber-dark">
       <NavigationBar />
       
-      <main>
+      {/* Added pt-24 class to provide proper top padding to account for the fixed navbar */}
+      <main className="pt-24">
         <HeroSection />
         
         <section className="py-24 relative overflow-hidden">
