@@ -1,4 +1,3 @@
-
 import { useState, useEffect, ChangeEvent } from "react";
 import Button from "./Button";
 import { Binary, FileText, RotateCw } from "lucide-react";
@@ -33,6 +32,10 @@ const BinaryConverter = () => {
   }, []);
 
   const handleInputChange = (e: ChangeEvent<HTMLTextAreaArea>) => {
+    setInput(e.target.value);
+  };
+
+  const handleTextInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
@@ -138,7 +141,7 @@ const BinaryConverter = () => {
               </div>
               <textarea
                 value={input}
-                onChange={handleInputChange}
+                onChange={handleTextInput}
                 placeholder={mode === "text-to-binary" ? "Enter text here..." : "Enter binary code here (e.g., 01101000 01101001)..."}
                 className="w-full h-40 p-3 bg-cyber-darker border border-cyber-blue/30 rounded-md focus:border-cyber-blue focus:outline-none focus:ring-1 focus:ring-cyber-blue/50 font-mono text-sm resize-none"
               />

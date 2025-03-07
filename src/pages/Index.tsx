@@ -8,6 +8,7 @@ import TestimonialsSection from "@/components/TestimonialsSection";
 import FaqSection from "@/components/FaqSection";
 import DisclaimerSection from "@/components/DisclaimerSection";
 import Footer from "@/components/Footer";
+import NeoMatrixSection from "@/components/NeoMatrixSection";
 
 const Index = () => {
   useEffect(() => {
@@ -64,6 +65,7 @@ const Index = () => {
         <FeatureSection />
         <BinaryConverter />
         <TestimonialsSection />
+        <NeoMatrixSection />
         <FaqSection />
         <DisclaimerSection />
       </main>
