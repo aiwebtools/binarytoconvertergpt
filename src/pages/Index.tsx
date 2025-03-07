@@ -12,7 +12,7 @@ import { Binary } from "lucide-react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Binary-Text Converter GPT | AI-Powered Data Conversion";
+    document.title = "Binary-Text Converter GPT | AI-Powered Conversion Tool";
     
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
