@@ -10,9 +10,14 @@ const MatrixTextDisplay = () => {
         </div>
         
         <div className="mt-4 text-center">
-          <div className="inline-block border border-green-500/50 px-3 py-1 rounded-sm text-green-500 text-sm">
+          <a 
+            href="https://chatgpt.com/g/g-qQy3UVJiW-neo-matrix-gpt" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block border border-green-500/50 px-3 py-1 rounded-sm text-green-500 text-sm hover:bg-green-500/10 transition-all duration-300"
+          >
             <span className="animate-pulse">WAKE UP NEO...</span>
-          </div>
+          </a>
         </div>
       </div>
       
