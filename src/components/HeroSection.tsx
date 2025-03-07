@@ -35,7 +35,7 @@ const HeroSection = () => {
             <div className="inline-block mb-4 px-4 py-1 rounded-full bg-cyber-blue/10 border border-cyber-blue/30">
               <div className="flex items-center gap-2">
                 <Binary className="h-4 w-4 text-cyber-blue" />
-                <span className="text-sm font-medium text-cyber-blue">AI-Powered Conversion Tool</span>
+                <span className="text-sm font-medium text-cyber-blue">AI-Powered Data Conversion</span>
               </div>
             </div>
             
@@ -45,9 +45,9 @@ const HeroSection = () => {
             </h1>
             
             <p className="text-lg mb-8 text-gray-300 max-w-2xl">
-              Transform your data between binary and text formats with precision and ease. 
-              Powered by advanced AI technology, our converter tool handles everything from simple text 
-              to complex image conversions.
+              Convert between text and binary with precision using advanced AI. 
+              Transform text to binary code, decode binary back to text, and even convert 
+              images to binary and back with perfect accuracy.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">

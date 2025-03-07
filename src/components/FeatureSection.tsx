@@ -41,22 +41,22 @@ const features = [
   {
     icon: TerminalSquare,
     title: "Text to Binary Conversion",
-    description: "Convert any text into its binary representation with precise 8-bit encoding for each character."
+    description: "Convert any text into 8-bit binary representation with precise encoding for each character, perfect for programming or educational purposes."
   },
   {
     icon: MonitorSmartphone,
     title: "Binary to Text Decoding",
-    description: "Decode binary strings back to human-readable text with support for various formatting options."
+    description: "Instantly decode binary strings back to human-readable text with support for various formatting options and automatic error detection."
   },
   {
     icon: Image,
     title: "Image Conversion",
-    description: "Transform images to binary data and vice versa, maintaining full fidelity throughout the conversion process."
+    description: "Transform images to binary data streams and vice versa with our advanced AI algorithms that maintain complete fidelity throughout the process."
   },
   {
     icon: Zap,
-    title: "Real-time Processing",
-    description: "Experience lightning-fast conversions powered by advanced algorithms and AI technology."
+    title: "Interactive Guidance",
+    description: "Get step-by-step explanations of the conversion process with our AI assistant that guides you through each transformation with Matrix-inspired dialogue."
   }
 ];
 
@@ -101,7 +101,7 @@ const FeatureSection = () => {
               Advanced <span className="text-cyber-blue neon-text">Features</span>
             </h2>
             <p className="text-gray-300 max-w-2xl mx-auto">
-              Our Binary-Text Converter GPT offers powerful capabilities that go beyond basic conversion.
+              Our Binary-Text Converter GPT goes beyond basic conversion with powerful capabilities and an immersive interface.
             </p>
             <div className="mt-8 animate-bounce">
               <ChevronsDown className="h-6 w-6 mx-auto text-cyber-blue" />
@@ -131,7 +131,7 @@ const FeatureSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-bold mb-1">Input Your Data</h4>
-                <p className="text-gray-400">Enter text or binary code into the converter, or upload an image for conversion.</p>
+                <p className="text-gray-400">Enter text, paste binary code, or upload an image file directly to the converter.</p>
               </div>
             </div>
             
@@ -141,7 +141,7 @@ const FeatureSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-bold mb-1">AI Processing</h4>
-                <p className="text-gray-400">Our advanced AI algorithms process the input data with precision and efficiency.</p>
+                <p className="text-gray-400">Our advanced algorithms process your input with Python-powered precision, ensuring 100% accurate conversions.</p>
               </div>
             </div>
             
@@ -151,7 +151,7 @@ const FeatureSection = () => {
               </div>
               <div>
                 <h4 className="text-lg font-bold mb-1">Get Results</h4>
-                <p className="text-gray-400">Receive your converted output instantly, ready for use in your projects or applications.</p>
+                <p className="text-gray-400">Receive your converted output instantly, formatted for easy reading or further processing in your projects.</p>
               </div>
             </div>
             
@@ -160,8 +160,8 @@ const FeatureSection = () => {
                 4
               </div>
               <div>
-                <h4 className="text-lg font-bold mb-1">Further Options</h4>
-                <p className="text-gray-400">Customize your conversion with additional settings or save your results for later use.</p>
+                <h4 className="text-lg font-bold mb-1">Matrix-Style Guidance</h4>
+                <p className="text-gray-400">Get immersive, Morpheus-inspired explanations that make learning about binary conversion entertaining and educational.</p>
               </div>
             </div>
           </div>

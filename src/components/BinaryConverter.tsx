@@ -32,7 +32,7 @@ const BinaryConverter = () => {
     };
   }, []);
 
-  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaArea>) => {
     setInput(e.target.value);
   };
 
@@ -99,7 +99,8 @@ const BinaryConverter = () => {
             <span className="text-cyber-blue neon-text">Interactive</span> Converter
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            Experience the power of our converter right here. Switch between text-to-binary and binary-to-text modes to see it in action.
+            Try out a simplified version of our converter right here. For full functionality including image conversion 
+            and Matrix-style guidance, use our complete GPT model.
           </p>
         </div>
 
@@ -113,7 +114,7 @@ const BinaryConverter = () => {
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <span className="text-sm font-medium text-gray-400">conversion-terminal</span>
+              <span className="text-sm font-medium text-gray-400">neural-conversion-terminal</span>
             </div>
             
             <button 
@@ -187,6 +188,22 @@ const BinaryConverter = () => {
                 "Convert"
               )}
             </Button>
+          </div>
+
+          <div className="mt-6 text-center">
+            <p className="text-cyber-blue">
+              For full functionality including image conversion, try the complete GPT model
+            </p>
+            <div className="mt-3">
+              <a 
+                href="https://chatgpt.com/g/g-Z2gJ5QYNn-binary-text-converter-gpt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-cyber-purple underline hover:text-glow-purple"
+              >
+                Access the full Binary-Text Converter GPT →
+              </a>
+            </div>
           </div>
         </div>
       </div>
