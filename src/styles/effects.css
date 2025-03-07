@@ -1,4 +1,3 @@
-
 @layer components {
   .crt-effect {
     @apply relative overflow-hidden;
@@ -16,6 +15,15 @@
     }
     100% {
       transform: translateY(100%);
+    }
+  }
+  
+  @keyframes matrix-scan {
+    0% {
+      transform: translateY(-200%) rotate(40deg);
+    }
+    100% {
+      transform: translateY(200%) rotate(40deg);
     }
   }
   
@@ -63,4 +71,8 @@
 
 .to-cyber-green {
   --tw-gradient-to: #00ff41;
+}
+
+.animate-matrix-scan {
+  animation: matrix-scan 2s linear infinite;
 }
