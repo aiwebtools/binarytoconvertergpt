@@ -1,3 +1,4 @@
+
 import { useState, useEffect, ChangeEvent } from "react";
 import Button from "./Button";
 import { Binary, FileText, RotateCw } from "lucide-react";
@@ -31,7 +32,8 @@ const BinaryConverter = () => {
     };
   }, []);
 
-  const handleInputChange = (e: ChangeEvent<HTMLTextAreaArea>) => {
+  // Fixed the type error with HTMLTextAreaElement
+  const handleInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     setInput(e.target.value);
   };
 
@@ -94,14 +96,14 @@ const BinaryConverter = () => {
   return (
     <section 
       id="converter" 
-      className={`py-20 px-4 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
+      className={`py-12 sm:py-20 px-4 transition-opacity duration-1000 ${isVisible ? "opacity-100" : "opacity-0"}`}
     >
       <div className="container mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">
             <span className="text-cyber-blue neon-text">Interactive</span> Converter
           </h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
             Try out a simplified version of our converter right here. For full functionality including image conversion 
             and Matrix-style guidance, use our complete GPT model.
           </p>
@@ -110,21 +112,21 @@ const BinaryConverter = () => {
         <div className="max-w-4xl mx-auto cyber-panel relative">
           <div className="absolute -inset-0.5 bg-gradient-to-r from-cyber-blue to-cyber-purple opacity-30 blur rounded-lg -z-10"></div>
           
-          <div className="flex items-center justify-between mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-6 gap-3">
             <div className="flex items-center gap-2">
               <div className="flex gap-1">
                 <div className="w-3 h-3 rounded-full bg-red-500"></div>
                 <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
                 <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <span className="text-sm font-medium text-gray-400">neural-conversion-terminal</span>
+              <span className="text-xs sm:text-sm font-medium text-gray-400">neural-conversion-terminal</span>
             </div>
             
             <button 
               onClick={handleModeToggle}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-cyber-darker border border-cyber-blue/30 text-sm hover:bg-cyber-blue/10 transition-colors duration-200"
+              className="flex items-center gap-2 px-3 py-1 sm:px-4 sm:py-2 rounded-full bg-cyber-darker border border-cyber-blue/30 text-xs sm:text-sm hover:bg-cyber-blue/10 transition-colors duration-200"
             >
-              <RotateCw className="h-4 w-4" />
+              <RotateCw className="h-3 w-3 sm:h-4 sm:w-4" />
               <span>Switch to {mode === "text-to-binary" ? "Binary → Text" : "Text → Binary"}</span>
             </button>
           </div>
@@ -135,7 +137,7 @@ const BinaryConverter = () => {
                 <div className="p-1 rounded bg-cyber-blue/20 text-cyber-blue">
                   {mode === "text-to-binary" ? <FileText className="h-4 w-4" /> : <Binary className="h-4 w-4" />}
                 </div>
-                <label className="font-medium">
+                <label className="font-medium text-sm sm:text-base">
                   {mode === "text-to-binary" ? "Enter Text" : "Enter Binary"}
                 </label>
               </div>
@@ -143,7 +145,7 @@ const BinaryConverter = () => {
                 value={input}
                 onChange={handleTextInput}
                 placeholder={mode === "text-to-binary" ? "Enter text here..." : "Enter binary code here (e.g., 01101000 01101001)..."}
-                className="w-full h-40 p-3 bg-cyber-darker border border-cyber-blue/30 rounded-md focus:border-cyber-blue focus:outline-none focus:ring-1 focus:ring-cyber-blue/50 font-mono text-sm resize-none"
+                className="w-full h-32 sm:h-40 p-3 bg-cyber-darker border border-cyber-blue/30 rounded-md focus:border-cyber-blue focus:outline-none focus:ring-1 focus:ring-cyber-blue/50 font-mono text-xs sm:text-sm resize-none"
               />
             </div>
             
@@ -152,7 +154,7 @@ const BinaryConverter = () => {
                 <div className="p-1 rounded bg-cyber-purple/20 text-cyber-purple">
                   {mode === "text-to-binary" ? <Binary className="h-4 w-4" /> : <FileText className="h-4 w-4" />}
                 </div>
-                <label className="font-medium">
+                <label className="font-medium text-sm sm:text-base">
                   {mode === "text-to-binary" ? "Binary Output" : "Text Output"}
                 </label>
               </div>
@@ -160,14 +162,14 @@ const BinaryConverter = () => {
                 <textarea
                   value={output}
                   readOnly
-                  className="w-full h-40 p-3 bg-cyber-darker border border-cyber-purple/30 rounded-md font-mono text-sm resize-none"
+                  className="w-full h-32 sm:h-40 p-3 bg-cyber-darker border border-cyber-purple/30 rounded-md font-mono text-xs sm:text-sm resize-none"
                   placeholder="Output will appear here..."
                 />
                 {isProcessing && (
                   <div className="absolute inset-0 flex items-center justify-center bg-cyber-darker/80 backdrop-blur-sm">
                     <div className="flex flex-col items-center">
-                      <div className="animate-spin rounded-full h-10 w-10 border-t-2 border-b-2 border-cyber-blue"></div>
-                      <span className="mt-3 text-cyber-blue">Processing...</span>
+                      <div className="animate-spin rounded-full h-8 w-8 sm:h-10 sm:w-10 border-t-2 border-b-2 border-cyber-blue"></div>
+                      <span className="mt-3 text-cyber-blue text-sm">Processing...</span>
                     </div>
                   </div>
                 )}
@@ -180,7 +182,7 @@ const BinaryConverter = () => {
               onClick={handleConvert} 
               variant="primary"
               disabled={isProcessing || !input.trim()}
-              className="w-full md:w-auto"
+              className="w-full md:w-auto text-sm"
             >
               {isProcessing ? (
                 <span className="flex items-center gap-2">
@@ -194,7 +196,7 @@ const BinaryConverter = () => {
           </div>
 
           <div className="mt-6 text-center">
-            <p className="text-cyber-blue">
+            <p className="text-cyber-blue text-xs sm:text-sm">
               For full functionality including image conversion, try the complete GPT model
             </p>
             <div className="mt-3">
@@ -202,7 +204,7 @@ const BinaryConverter = () => {
                 href="https://chatgpt.com/g/g-Z2gJ5QYNn-binary-text-converter-gpt"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm text-cyber-purple underline hover:text-glow-purple"
+                className="text-xs sm:text-sm text-cyber-purple underline hover:text-glow-purple"
               >
                 Access the full Binary-Text Converter GPT →
               </a>

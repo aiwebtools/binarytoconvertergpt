@@ -36,10 +36,10 @@ const Index = () => {
       <NavigationBar />
       
       {/* Added pt-24 class to provide proper top padding to account for the fixed navbar */}
-      <main className="pt-24">
+      <main className="pt-16 sm:pt-24">
         <HeroSection />
         
-        <section className="py-24 relative overflow-hidden">
+        <section className="py-12 sm:py-24 relative overflow-hidden">
           <div className="container mx-auto px-4">
             <div className="cyber-panel overflow-hidden relative max-w-4xl mx-auto">
               <a 

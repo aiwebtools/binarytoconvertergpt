@@ -58,19 +58,19 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-xl sm:text-2xl md:text-3xl;
   }
 
   p {
-    @apply leading-relaxed;
+    @apply leading-relaxed text-sm sm:text-base;
   }
   
   a {
@@ -92,13 +92,13 @@
   }
   
   .cyber-panel {
-    @apply bg-cyber-light/60 backdrop-blur-md cyber-border rounded-md p-6;
+    @apply bg-cyber-light/60 backdrop-blur-md cyber-border rounded-md p-4 sm:p-6;
   }
   
   .cyber-button {
-    @apply relative overflow-hidden bg-transparent cyber-border text-cyber-blue font-mono font-bold uppercase tracking-wider py-3 px-6 
+    @apply relative overflow-hidden bg-transparent cyber-border text-cyber-blue font-mono font-bold uppercase tracking-wider py-2 sm:py-3 px-4 sm:px-6 
     rounded transition-all duration-300 hover:bg-cyber-blue/10 hover:shadow-[0_0_15px_rgba(0,240,255,0.5)] 
-    active:translate-y-1 active:shadow-none;
+    active:translate-y-1 active:shadow-none text-sm sm:text-base;
   }
   
   .cyber-button::before {

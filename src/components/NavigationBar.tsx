@@ -59,16 +59,16 @@ const NavigationBar = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled 
-          ? "py-2 bg-cyber-darker/80 backdrop-blur-lg shadow-lg" 
-          : "py-4 bg-transparent"
+          ? "py-1 sm:py-2 bg-cyber-darker/80 backdrop-blur-lg shadow-lg" 
+          : "py-2 sm:py-4 bg-transparent"
       )}
     >
       <div className="container px-4 mx-auto flex items-center justify-between">
         <a href="/" className="flex items-center gap-2 text-cyber-blue hover:text-cyber-blue">
-          <Binary className="h-6 w-6" />
+          <Binary className="h-5 w-5 sm:h-6 sm:w-6" />
           <div className="flex flex-col">
-            <span className="font-bold text-lg tracking-wider">Binary-Text Converter GPT</span>
-            <span className="text-xs text-cyber-blue/70">Presented by AiWebTools.Ai</span>
+            <span className="font-bold text-base sm:text-lg tracking-wider">Binary-Text Converter GPT</span>
+            <span className="text-[10px] sm:text-xs text-cyber-blue/70">Presented by AiWebTools.Ai</span>
           </div>
         </a>
 
@@ -82,7 +82,7 @@ const NavigationBar = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="primary" className="ml-4">
+                <Button variant="primary" className="ml-4 text-sm">
                   {link.label}
                 </Button>
               </a>
@@ -93,14 +93,14 @@ const NavigationBar = () => {
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 hover:text-cyber-blue transition-colors duration-200"
+                    className="px-3 py-2 text-sm hover:text-cyber-blue transition-colors duration-200"
                   >
                     {link.label}
                   </a>
                 ) : (
                   <button
                     onClick={link.action}
-                    className="px-4 py-2 hover:text-cyber-blue transition-colors duration-200"
+                    className="px-3 py-2 text-sm hover:text-cyber-blue transition-colors duration-200"
                   >
                     {link.label}
                   </button>
@@ -116,7 +116,7 @@ const NavigationBar = () => {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
@@ -124,7 +124,7 @@ const NavigationBar = () => {
       {isMenuOpen && (
         <div className="absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg cyber-border border-t border-cyber-blue/30 animate-fade-in">
           <div className="container px-4 mx-auto py-4">
-            <nav className="flex flex-col gap-4">
+            <nav className="flex flex-col gap-3">
               {navLinks.map((link, index) => (
                 <div key={index} className="w-full">
                   {link.url ? (
@@ -133,7 +133,7 @@ const NavigationBar = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       className={cn(
-                        "block w-full text-center py-3",
+                        "block w-full text-center py-2 text-sm",
                         link.isPrimary 
                           ? "cyber-button primary" 
                           : "hover:text-cyber-blue transition-colors duration-200"
@@ -145,7 +145,7 @@ const NavigationBar = () => {
                   ) : (
                     <button
                       onClick={link.action}
-                      className="block w-full text-center py-3 hover:text-cyber-blue transition-colors duration-200"
+                      className="block w-full text-center py-2 text-sm hover:text-cyber-blue transition-colors duration-200"
                     >
                       {link.label}
                     </button>
