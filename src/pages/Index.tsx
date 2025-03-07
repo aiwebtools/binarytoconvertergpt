@@ -38,6 +38,9 @@ const Index = () => {
       {/* Added pt-24 class to provide proper top padding to account for the fixed navbar */}
       <main className="pt-16 sm:pt-24">
         <HeroSection />
+        <FeatureSection />
+        <BinaryConverter />
+        <NeoMatrixSection />
         
         <section className="py-12 sm:py-24 relative overflow-hidden">
           <div className="container mx-auto px-4">
@@ -62,10 +65,7 @@ const Index = () => {
           </div>
         </section>
         
-        <FeatureSection />
-        <BinaryConverter />
         <TestimonialsSection />
-        <NeoMatrixSection />
         <FaqSection />
         <DisclaimerSection />
       </main>

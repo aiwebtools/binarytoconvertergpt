@@ -98,7 +98,7 @@ const NeoMatrixSection = () => {
   return (
     <section 
       ref={containerRef}
-      className={`relative py-16 md:py-24 overflow-hidden transition-opacity duration-1000 ${
+      className={`relative py-12 md:py-16 overflow-hidden transition-opacity duration-1000 ${
         isVisible ? "opacity-100" : "opacity-0"
       }`}
     >
@@ -109,57 +109,51 @@ const NeoMatrixSection = () => {
       />
       
       <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto bg-black/80 backdrop-blur-md p-6 md:p-8 rounded-lg border border-green-500/30">
-          <div className="text-center mb-8">
-            <h2 className="inline-block text-3xl md:text-4xl font-bold mb-2 text-green-500 border-b-2 border-green-500/30 pb-2">
+        <div className="max-w-6xl mx-auto bg-black/80 backdrop-blur-md p-4 md:p-6 rounded-lg border border-green-500/30">
+          <div className="text-center mb-6">
+            <h2 className="inline-block text-2xl md:text-3xl font-bold mb-2 text-green-500 border-b-2 border-green-500/30 pb-2">
               You May Also Like: NEO MATRIX GPT
             </h2>
-            <p className="text-green-400/80 text-sm md:text-base">
+            <p className="text-green-400/80 text-xs md:text-sm">
               Presented by AiWebTools.Ai
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            <div className="space-y-4">
-              <p className="text-green-300 text-sm md:text-base leading-relaxed">
+          <div className="flex flex-col md:flex-row gap-6 items-center md:items-stretch">
+            <div className="space-y-3 md:flex-1">
+              <p className="text-green-300 text-xs md:text-sm leading-relaxed">
                 <strong className="text-green-400">NEO MATRIX GPT</strong> takes you on a journey down the rabbit hole, 
                 challenging your perception of reality through interactive philosophical exploration.
               </p>
               
-              <div className="space-y-3">
+              <div className="space-y-2 max-w-lg mx-auto md:mx-0">
                 <div className="flex items-start gap-2">
-                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2"></div>
-                  <p className="text-xs md:text-sm text-gray-300">
+                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-xs text-gray-300">
                     <span className="text-green-400">Binary Translation:</span> Decode hidden messages revealing the structure of your simulated reality
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2"></div>
-                  <p className="text-xs md:text-sm text-gray-300">
+                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-xs text-gray-300">
                     <span className="text-green-400">Reality Keys:</span> Unlock new perspectives about the nature of existence
                   </p>
                 </div>
                 <div className="flex items-start gap-2">
-                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2"></div>
-                  <p className="text-xs md:text-sm text-gray-300">
+                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2 flex-shrink-0"></div>
+                  <p className="text-xs text-gray-300">
                     <span className="text-green-400">Follow the White Rabbit:</span> Guided journey of awakening with each interaction
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-1 h-1 rounded-full bg-green-500 mt-2"></div>
-                  <p className="text-xs md:text-sm text-gray-300">
-                    <span className="text-green-400">Immersive Dialogue:</span> Conversations that adapt to your level of understanding
                   </p>
                 </div>
               </div>
               
-              <div className="pt-4">
+              <div className="pt-4 flex justify-center md:justify-start">
                 <a 
                   href="https://neomatrixgpt.lovable.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Button variant="custom" className="w-full sm:w-auto bg-black border border-green-500 text-green-500 hover:bg-green-900/20">
+                  <Button variant="outline" className="w-full sm:w-auto bg-black border border-green-500 text-green-500 hover:bg-green-900/20">
                     <span className="flex items-center gap-2">
                       <span>Follow The White Rabbit</span>
                       <ExternalLink className="h-4 w-4" />
@@ -169,9 +163,9 @@ const NeoMatrixSection = () => {
               </div>
             </div>
             
-            <div className="relative group">
-              <div className="cyber-panel p-4 bg-black border border-green-500/40 group-hover:border-green-500/70 transition-all duration-500">
-                <div className="overflow-hidden h-48 md:h-64 relative font-mono text-green-500 text-xs leading-relaxed">
+            <div className="relative group md:flex-1">
+              <div className="cyber-panel p-4 bg-black border border-green-500/40 group-hover:border-green-500/70 transition-all duration-500 max-w-sm mx-auto">
+                <div className="overflow-hidden h-32 md:h-48 relative font-mono text-green-500 text-xs leading-relaxed">
                   <div className="animate-scrolling-text absolute">
                     <p>ヒノフサツニモネピラワピピケヅポゾブトバセミポフヨミルペイツヘジヘヤ0ダミドンメタドブパビアアルフヲホスヌミオモケザヨパロノヲウヌビドノメジヅ0ギ0ゾギ1アオフヨモキパメゾクピセビラデニツギヅフツドレゾボメビダンヌラブヨポテコポ1ベバロ0ベダズシサクツソセキヂワシタリテギムゾレルペダニホヲレソサンツブギネウニダロヨパダヅソエイヘモグノスエゲポタヒヘゼジドベレデヲヲシソアパ...</p>
                   </div>

@@ -14,8 +14,22 @@ const NavigationBar = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    
+    // Close menu when clicking outside
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isMenuOpen && !target.closest('.mobile-menu-container')) {
+        setIsMenuOpen(false);
+      }
+    };
+    
+    document.addEventListener('click', handleClickOutside);
+    
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, [isMenuOpen]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -112,7 +126,7 @@ const NavigationBar = () => {
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden p-2 text-cyber-blue hover:text-cyber-purple"
+          className="md:hidden p-2 text-cyber-blue hover:text-cyber-purple mobile-menu-container"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -122,7 +136,7 @@ const NavigationBar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg cyber-border border-t border-cyber-blue/30 animate-fade-in">
+        <div className="absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg cyber-border border-t border-cyber-blue/30 animate-fade-in mobile-menu-container">
           <div className="container px-4 mx-auto py-4">
             <nav className="flex flex-col gap-3">
               {navLinks.map((link, index) => (
