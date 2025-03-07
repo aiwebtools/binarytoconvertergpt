@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 import { Binary, Menu, X } from "lucide-react";
 import Button from "./Button";
@@ -7,6 +7,7 @@ import Button from "./Button";
 const NavigationBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,21 +18,35 @@ const NavigationBar = () => {
     
     // Close menu when clicking outside
     const handleClickOutside = (event: MouseEvent) => {
-      const target = event.target as HTMLElement;
-      if (isMenuOpen && !target.closest('.mobile-menu-container')) {
+      if (
+        isMenuOpen && 
+        menuRef.current && 
+        !menuRef.current.contains(event.target as Node)
+      ) {
         setIsMenuOpen(false);
       }
     };
     
     document.addEventListener('click', handleClickOutside);
     
+    // Close menu when resizing to desktop view
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    
     return () => {
       window.removeEventListener("scroll", handleScroll);
       document.removeEventListener('click', handleClickOutside);
+      window.removeEventListener("resize", handleResize);
     };
   }, [isMenuOpen]);
 
-  const toggleMenu = () => {
+  const toggleMenu = (e: React.MouseEvent) => {
+    e.stopPropagation();
     setIsMenuOpen(!isMenuOpen);
   };
 
@@ -126,50 +141,68 @@ const NavigationBar = () => {
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden p-2 text-cyber-blue hover:text-cyber-purple mobile-menu-container"
+          className="md:hidden p-2 text-cyber-blue hover:text-cyber-purple"
           onClick={toggleMenu}
           aria-label="Toggle menu"
+          aria-expanded={isMenuOpen}
         >
           {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg cyber-border border-t border-cyber-blue/30 animate-fade-in mobile-menu-container">
-          <div className="container px-4 mx-auto py-4">
-            <nav className="flex flex-col gap-3">
-              {navLinks.map((link, index) => (
-                <div key={index} className="w-full">
-                  {link.url ? (
-                    <a 
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={cn(
-                        "block w-full text-center py-2 text-sm",
-                        link.isPrimary 
-                          ? "cyber-button primary" 
-                          : "hover:text-cyber-blue transition-colors duration-200"
-                      )}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <button
-                      onClick={link.action}
-                      className="block w-full text-center py-2 text-sm hover:text-cyber-blue transition-colors duration-200"
-                    >
-                      {link.label}
-                    </button>
-                  )}
-                </div>
-              ))}
-            </nav>
-          </div>
+      {/* Mobile Navigation - with improved animations and positioning */}
+      <div 
+        ref={menuRef}
+        className={cn(
+          "absolute top-full left-0 right-0 bg-cyber-darker/95 backdrop-blur-lg border-t border-cyber-blue/30 transform transition-all duration-300 ease-in-out md:hidden",
+          isMenuOpen 
+            ? "opacity-100 translate-y-0 pointer-events-auto" 
+            : "opacity-0 -translate-y-4 pointer-events-none"
+        )}
+      >
+        <div className="container px-4 mx-auto py-4">
+          <nav className="flex flex-col gap-3">
+            {navLinks.map((link, index) => (
+              <div 
+                key={index} 
+                className={cn(
+                  "w-full transform transition-all duration-300 ease-in-out",
+                  isMenuOpen 
+                    ? "opacity-100 translate-x-0" 
+                    : "opacity-0 translate-x-4",
+                  `transition-delay-${index * 50}`
+                )}
+                style={{ 
+                  transitionDelay: isMenuOpen ? `${index * 50}ms` : '0ms'
+                }}
+              >
+                {link.url ? (
+                  <a 
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      "block w-full text-center py-3 text-sm rounded-md",
+                      link.isPrimary 
+                        ? "bg-cyber-blue/20 border border-cyber-blue text-white hover:bg-cyber-blue/30" 
+                        : "hover:bg-cyber-blue/10 hover:text-cyber-blue transition-colors duration-200"
+                    )}
+                  >
+                    {link.label}
+                  </a>
+                ) : (
+                  <button
+                    onClick={link.action}
+                    className="block w-full text-center py-3 text-sm rounded-md hover:bg-cyber-blue/10 hover:text-cyber-blue transition-colors duration-200"
+                  >
+                    {link.label}
+                  </button>
+                )}
+              </div>
+            ))}
+          </nav>
         </div>
-      )}
+      </div>
     </header>
   );
 };
