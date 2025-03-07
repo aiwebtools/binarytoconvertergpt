@@ -1,0 +1,9 @@
+
+@keyframes scrolling {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+.animate-scrolling-text {
+  animation: scrolling 20s linear infinite;
+}
