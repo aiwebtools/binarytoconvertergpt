@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import NavigationBar from "@/components/NavigationBar";
 import HeroSection from "@/components/HeroSection";
@@ -8,6 +9,7 @@ import FaqSection from "@/components/FaqSection";
 import DisclaimerSection from "@/components/DisclaimerSection";
 import Footer from "@/components/Footer";
 import NeoMatrixSection from "@/components/NeoMatrixSection";
+import DisclaimerPopup from "@/components/DisclaimerPopup";
 import { Binary } from "lucide-react";
 
 const Index = () => {
@@ -31,6 +33,7 @@ const Index = () => {
   return (
     <div className="flex flex-col min-h-screen bg-cyber-dark">
       <NavigationBar />
+      <DisclaimerPopup />
       
       <main className="pt-16 sm:pt-24">
         <HeroSection />

@@ -1,78 +1,57 @@
-@layer components {
-  .crt-effect {
-    @apply relative overflow-hidden;
-  }
-  
-  .crt-effect::before {
-    content: '';
-    @apply absolute top-0 left-0 right-0 bottom-0 bg-gradient-to-b from-transparent via-cyber-blue/5 to-transparent opacity-50 pointer-events-none;
-    animation: scanline 2s linear infinite;
-  }
-  
-  @keyframes scanline {
-    0% {
-      transform: translateY(-100%);
-    }
-    100% {
-      transform: translateY(100%);
-    }
-  }
-  
-  @keyframes matrix-scan {
-    0% {
-      transform: translateY(-200%) rotate(40deg);
-    }
-    100% {
-      transform: translateY(200%) rotate(40deg);
-    }
-  }
-  
-  .hover-scale {
-    @apply transition-transform duration-300 hover:scale-105;
-  }
 
-  .typing-effect {
-    overflow: hidden;
-    display: inline-block;
-    white-space: nowrap;
-    border-right: 2px solid #00ff41;
-    animation: typing 20s steps(40, end) infinite, blink-caret 0.75s step-end infinite;
-    max-width: 100%;
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.7;
   }
-
-  @keyframes typing {
-    0% { width: 0 }
-    50% { width: 100% }
-    100% { width: 0 }
-  }
-
-  @keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #00ff41 }
+  50% {
+    opacity: 0.9;
   }
 }
 
-/* Add Matrix green color */
-.text-cyber-green {
-  color: #00ff41;
+@keyframes matrix-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
-.bg-cyber-green {
-  background-color: #00ff41;
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.8), 0 0 30px rgba(0, 240, 255, 0.3);
+  }
 }
 
-.border-cyber-green {
-  border-color: #00ff41;
-}
-
-.from-cyber-green {
-  --tw-gradient-from: #00ff41;
-}
-
-.to-cyber-green {
-  --tw-gradient-to: #00ff41;
+.animate-pulse-slow {
+  animation: pulse-slow 3s infinite;
 }
 
 .animate-matrix-scan {
   animation: matrix-scan 2s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.3);
+  border-radius: 5px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 240, 255, 0.5);
 }
