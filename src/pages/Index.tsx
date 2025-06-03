@@ -14,8 +14,22 @@ import { Binary } from "lucide-react";
 
 const Index = () => {
   useEffect(() => {
-    document.title = "Binary-Text Converter GPT | AI-Powered Conversion Tool";
+    // Enhanced SEO title
+    document.title = "Free AI Binary Text Converter Tool | AIWEBTOOLS.AI - Best AI Tools 2025";
     
+    // Add additional meta tags dynamically
+    const metaDescription = document.querySelector('meta[name="description"]');
+    if (metaDescription) {
+      metaDescription.setAttribute('content', 'Free AI-powered Binary-Text Converter GPT by AIWEBTOOLS.AI. Convert text to binary, binary to text, and images instantly. Best free AI tools for developers, students, and programmers. No signup required.');
+    }
+    
+    // Add robots meta tag
+    const robotsMeta = document.createElement('meta');
+    robotsMeta.name = 'robots';
+    robotsMeta.content = 'index, follow, max-snippet:-1, max-image-preview:large';
+    document.head.appendChild(robotsMeta);
+    
+    // Smooth scroll behavior for hash links
     if (window.location.hash) {
       const id = window.location.hash.substring(1);
       setTimeout(() => {
@@ -26,22 +40,67 @@ const Index = () => {
       }, 100);
     }
     
+    // Preload critical images for better Core Web Vitals
     const img = new Image();
     img.src = "https://img1.wsimg.com/isteam/ip/9fd6d942-5b46-4025-92e2-0f1ec2a7adf2/a-sophisticated-and-futuristic-advertisement-.jpeg/:/cr=t:5.56%25,l:0%25,w:100%25,h:88.89%25/rs=w:1200,h:600,cg:true";
+    
+    // Add structured data for BreadcrumbList
+    const breadcrumbScript = document.createElement('script');
+    breadcrumbScript.type = 'application/ld+json';
+    breadcrumbScript.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI Tools",
+          "item": "https://www.aiwebtools.ai"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Free AI Tools",
+          "item": "https://www.aiwebtools.ai/free-ai-tools"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Binary Text Converter",
+          "item": "https://binarytextconvertergpt.lovable.app/"
+        }
+      ]
+    });
+    document.head.appendChild(breadcrumbScript);
+    
+    return () => {
+      document.head.removeChild(robotsMeta);
+      document.head.removeChild(breadcrumbScript);
+    };
   }, []);
 
   return (
     <div className="flex flex-col min-h-screen bg-cyber-dark">
+      {/* SEO-optimized navigation with schema markup */}
       <NavigationBar />
       <DisclaimerPopup />
       
-      <main className="pt-16 sm:pt-24">
+      {/* Main content with semantic HTML5 structure for better SEO */}
+      <main className="pt-16 sm:pt-24" role="main">
+        {/* Hero section with primary keywords */}
         <HeroSection />
+        
+        {/* Features section for keyword density */}
         <FeatureSection />
+        
+        {/* Interactive tool section */}
         <BinaryConverter />
+        
+        {/* Educational content section */}
         <NeoMatrixSection />
         
-        <section className="py-12 sm:py-24 relative overflow-hidden">
+        {/* Call-to-action section with internal linking */}
+        <section className="py-12 sm:py-24 relative overflow-hidden" aria-label="Access Full Binary-Text Converter GPT">
           <div className="container mx-auto px-4">
             <div className="cyber-panel overflow-hidden relative max-w-4xl mx-auto">
               <a 
@@ -49,12 +108,15 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block"
+                aria-label="View Matrix Neo GPT promotional image"
               >
                 <img 
                   src="https://img1.wsimg.com/isteam/ip/9fd6d942-5b46-4025-92e2-0f1ec2a7adf2/a-sophisticated-and-futuristic-advertisement-.jpeg/:/cr=t:5.56%25,l:0%25,w:100%25,h:88.89%25/rs=w:1200,h:600,cg:true"
-                  alt="Matrix Neo GPT" 
+                  alt="Free AI Binary Text Converter GPT by AIWEBTOOLS.AI - Matrix Neo Style Interface" 
                   className="w-full h-auto rounded transform hover:scale-105 transition-transform duration-700"
                   loading="lazy"
+                  width="1200"
+                  height="600"
                 />
               </a>
               
@@ -67,11 +129,12 @@ const Index = () => {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative overflow-hidden cyber-panel px-8 py-6 rounded-lg bg-black hover:bg-black/80 transition-all duration-500 transform hover:scale-105"
+                aria-label="Access the full Binary-Text Converter GPT tool"
               >
                 <div className="absolute inset-0 bg-[linear-gradient(40deg,transparent_25%,rgba(68,255,30,0.2)_50%,transparent_75%)] opacity-0 group-hover:opacity-100 animate-matrix-scan"></div>
                 
                 <div className="flex items-center gap-3 relative z-10">
-                  <Binary className="w-6 h-6 text-cyber-green animate-pulse" />
+                  <Binary className="w-6 h-6 text-cyber-green animate-pulse" aria-hidden="true" />
                   <span className="text-cyber-green text-lg font-mono font-bold tracking-wider">
                     Access the full Binary-Text Converter GPT
                   </span>
@@ -83,11 +146,17 @@ const Index = () => {
           </div>
         </section>
         
+        {/* Social proof section */}
         <TestimonialsSection />
+        
+        {/* FAQ section for long-tail keywords */}
         <FaqSection />
+        
+        {/* Legal compliance section */}
         <DisclaimerSection />
       </main>
       
+      {/* Footer with rich internal linking */}
       <Footer />
     </div>
   );
