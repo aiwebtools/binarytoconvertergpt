@@ -15,12 +15,12 @@ import { Binary } from "lucide-react";
 const Index = () => {
   useEffect(() => {
     // Enhanced SEO title
-    document.title = "Free AI Binary Text Converter Tool | AIWEBTOOLS.AI - Best AI Tools 2025";
+    document.title = "Binary-Text Converter GPT | Free AI Tool by AIWEBTOOLS.AI";
     
     // Add additional meta tags dynamically
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Free AI-powered Binary-Text Converter GPT by AIWEBTOOLS.AI. Convert text to binary, binary to text, and images instantly. Best free AI tools for developers, students, and programmers. No signup required.');
+      metaDescription.setAttribute('content', 'Binary-Text Converter GPT: Free AI-powered tool to convert text to binary and binary to text instantly. Perfect for developers, students, and programmers. No signup required.');
     }
     
     // Add robots meta tag
