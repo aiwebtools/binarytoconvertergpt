@@ -78,7 +78,7 @@ const NavigationBar = () => {
     },
     { 
       label: "More AI Tools", 
-      url: "https://www.aiwebtools.ai", 
+      url: "https://aiwebtools.lovable.app/?via=aiwebtools", 
       isPrimary: false 
     },
   ];
