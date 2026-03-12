@@ -168,7 +168,7 @@ const Footer = () => {
           
           <div className="flex items-center gap-6">
             <a 
-              href="https://www.aiwebtools.ai"
+              href="https://aiwebtools.lovable.app/?via=aiwebtools"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-cyber-blue/10 hover:bg-cyber-blue/20 text-cyber-blue px-6 py-2 rounded-full transition-colors"
